@@ -1,15 +1,15 @@
----
+
 # Project Sentry – Backend API Documentation
----
+
 
 ## Overview
 Project Sentry is a backend system for automated inventory replenishment, built with Node.js, Express, MongoDB Atlas, and Confluent Cloud Kafka.  
 It provides RESTful API endpoints for managing low stock alerts, transfer orders, shipments, and receipts, with event-driven orchestration using Kafka topics.
 
----
+
 
 ## Getting Started
----
+
 
 ## Prerequisites
 - Node.js (v18+)
@@ -17,7 +17,7 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
 - Confluent Cloud Kafka cluster
 - `.env` file with your credentials
 
----
+
 
 ## Setup
 1. Clone the repository and install dependencies:
@@ -38,10 +38,9 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
     npm run dev
     ```
 
----
 
 ## API Endpoints
----
+
 
 ## 1. Raise Low Stock Alert
 - **POST** `/api/alerts`
@@ -61,7 +60,7 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
     }
     ```
 
----
+
 
 ## 2. Create Transfer Order
 - **POST** `/api/transfer-orders`
@@ -87,25 +86,25 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
     ```
 - **Response:** Shipment tracking info and status.
 
----
+
 
 ## 4. Mark as Received
 - **PATCH** `/api/receipts/:replenishment_id/receive`
 - **Response:** Final status and received quantity.
 
----
+
 
 ## 5. Get Replenishment Details
 - **GET** `/api/replenishments/:replenishment_id`
 - **Response:** Full order details and history.
 
----
+
 
 ## 6. List All Replenishments
 - **GET** `/api/replenishments`
 - **Response:** Array of all replenishment orders.
 
----
+
 
 ## Example Workflow
 1. **Raise alert:**  
@@ -119,7 +118,7 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
 5. **Check status:**  
    GET `/api/replenishments/{replenishment_id}`
 
----
+
 
 ## Error Handling
 - 400: Bad request (missing/invalid fields)
@@ -127,7 +126,7 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
 - 409: Conflict (insufficient stock)
 - 500: Internal server error
 
----
+
 
 ## Technologies Used
 - Node.js, Express
@@ -135,7 +134,6 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
 - Confluent Cloud Kafka (kafkajs)
 - Postman (for API testing)
 
----
 
 ## How to Test
 - Use Postman or curl to send requests to `http://localhost:3000`
@@ -144,10 +142,7 @@ It provides RESTful API endpoints for managing low stock alerts, transfer orders
     curl -X POST http://localhost:3000/api/alerts -H "Content-Type: application/json" -d "{\"store_id\":\"S1\",\"product_id\":\"P1\",\"requested_qty\":10}"
     ```
 
----
 
 ## Notes
 - All business logic and orchestration are handled in the backend.
 - No frontend is required for this project; all features are accessible via API.
-
----
